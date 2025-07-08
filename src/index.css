@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background: #000000;
+  color: hsl(var(--foreground));
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', monospace;
+}
+
+/* Animated RGB Gradient Background */
+.rgb-gradient-bg {
+  background: linear-gradient(-45deg, #ff0080, #7928ca, #0070f3, #00dfd8, #ff0080);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-black {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* RGB glow effects */
+.rgb-glow {
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.3), 0 0 40px rgba(121, 40, 202, 0.2), 0 0 60px rgba(0, 112, 243, 0.1);
+}
+
+.rgb-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.5), 0 0 60px rgba(121, 40, 202, 0.3), 0 0 90px rgba(0, 112, 243, 0.2);
+  transform: translateY(-2px);
+}
+
+/* RGB border animation */
+.rgb-border {
+  position: relative;
+  background: linear-gradient(-45deg, #ff0080, #7928ca, #0070f3, #00dfd8);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.rgb-border::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #000000;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ff0080, #7928ca);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff0080, #0070f3);
+}
+
+/* Progress bar animation */
+.progress-glow {
+  background: linear-gradient(90deg, #ff0080, #7928ca, #0070f3);
+  box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+}
+
+/* Mobile nav slide animation */
+.mobile-nav-slide {
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-slide.active {
+  transform: translateY(0);
+}
+
+/* Card hover effects */
+.game-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 0, 128, 0.2), 0 0 30px rgba(121, 40, 202, 0.3);
+}
+
+/* Achievement badge glow */
+.achievement-glow {
+  animation: achievementPulse 2s ease-in-out infinite;
+}
+
+@keyframes achievementPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.3);
+  }
+}
+
+/* Button glow animation */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-glow:hover::before {
+  left: 100%;
+}
